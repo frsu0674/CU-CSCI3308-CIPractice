@@ -11,6 +11,7 @@
  */
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <check.h>
 
 #include "geometry.h"
@@ -145,6 +146,21 @@ START_TEST(test_2d_midpoint)
 }
 END_TEST
 
+START_TEST(test_2d_area_triangle) {
+    coord_2d_t a;
+    coord_2d_t b;
+    coord_2d_t c;
+    a.x = 0.0;
+    a.y = 0.0;
+    b.x = 1.0;
+    b.y = 0.0;
+    c.x = 1.0;
+    c.y = 1.0;
+
+    ck_assert(coord_2d_area_triangle(&a, &b, &c) == 0.5);
+}
+END_TEST
+
 /* coord_2d Test Suite */
 Suite* coord_2d_suite(void)
 {
@@ -169,7 +185,6 @@ Suite* coord_2d_suite(void)
 
     /* Return Suite */
     return s;
-
 }
 
 /* main: run test suites and set exit status */
