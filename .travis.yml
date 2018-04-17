@@ -1,4 +1,4 @@
 before_install:
--sudo apt-get install check
+-sudo apt-get install -check
 language: c
 script: make && make test && make clean
